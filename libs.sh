@@ -6,7 +6,7 @@ VERSION="v2.9.0"
 URL="https://github.com/mcjambi/react-native-pjsip-builder/archive/refs/heads/main.zip"
 # URL="https://github.com/mcjambi/react-native-pjsip-builder/archive/refs/tags/${VERSION}.tar.gz"
 LOCK="${DIR}/.libs.lock"
-DEST=".libs.tar.gz"
+DEST=".libs.zip"
 DOWNLOAD=true
 
 if ! type "wget" > /dev/null; then
@@ -52,7 +52,8 @@ fi
 
 if [ "$DOWNLOAD" = true ]; then
     wget "${URL}" -O "${DEST}"
-    tar -xvf "${DEST}"
+    # tar -xvf "${DEST}"
+    unzip "${DEST}"
     rm -f "${DEST}"
     echo "${VERSION}" > ${LOCK}
 
